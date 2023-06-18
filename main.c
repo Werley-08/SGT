@@ -19,6 +19,7 @@ int main(){
 
     printf("==============================================\n");
 
+    fflush(stdin);
     printf("Digite um dos comandos acima >> ");
 
     int comando = 0;
@@ -31,7 +32,7 @@ int main(){
 
     case 1 :
 
-    cadastro(cadastros);
+    Cadastro(cadastros);
 
     cadastros++;
 
@@ -47,17 +48,23 @@ int main(){
 
     case 3 : 
 
+    Visualizar(cadastros);
+
     break;
 
     // Pesquisar
 
     case 4 :
 
+    Pesquisar(cadastros);
+
     break;
 
     // Atualizar
 
     case 5 :
+
+    Atualizar(cadastros);
 
     break;
 
@@ -73,9 +80,9 @@ int main(){
 
      // Erro
     
-    default:
+    default :
 
-        printf("Comando Inválido!");
+        printf("Comando Invalido!\n");
 
         break;
     }

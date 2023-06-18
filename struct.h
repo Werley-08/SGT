@@ -1,9 +1,9 @@
+
 struct tarefas{
 
     char tarefa[101];
+    int id;
     char prioridade[101];
-    char observacoes[301];
+    char observacoes[501];
 
-};
-
-struct tarefas vetor[20];
+}estrutura[20];
