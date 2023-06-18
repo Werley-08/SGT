@@ -2,13 +2,16 @@
 
 #include "funcoes.h"
 
+
 int main(){
 
     int cadastros = 0;
 
+    lerDados(cadastros);
+
     while(1){
 
-    printf("==============================================\n");
+    printf("\n\n=========================================================================================================================\n");
 
     printf("1 - Adicionar tarefa\n");
     printf("2 - Remover tarefa\n");
@@ -17,7 +20,7 @@ int main(){
     printf("5 - Atualizar dados de tarefas\n");
     printf("6 - Encerrar Programa.\n");
 
-    printf("==============================================\n");
+    printf("=========================================================================================================================\n");
 
     fflush(stdin);
     printf("Digite um dos comandos acima >> ");
@@ -71,6 +74,8 @@ int main(){
     // Encerrar
 
     case 6 :
+
+        salvarDados(cadastros);
 
         printf("Programa Encerrado");
 

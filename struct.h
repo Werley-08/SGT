@@ -1,4 +1,3 @@
-
 struct tarefas{
 
     char tarefa[101];

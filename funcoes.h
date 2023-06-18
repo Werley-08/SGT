@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "struct.h"
 
 void Cadastro(int cadastros){
@@ -184,3 +185,61 @@ void Visualizar(int cadastros){
     return;
 
  }
+
+ // Persistência de Dados
+
+ void lerDados(int cadastros){
+
+    // Abrindo o arquivo para leitura
+    FILE *arquivo = fopen("dados.txt", "r");
+
+    if (arquivo == NULL){
+
+        printf("Erro ao abrir o arquivo\n");
+    }
+
+    // Lendo os arquivo da struct do arquivo
+
+        fscanf(arquivo, "%d\n", &cadastros);
+
+    for(int i = 0; i < cadastros; i++){
+
+    fscanf(arquivo, "%[^\n]\n", estrutura[i].tarefa);
+    fscanf(arquivo, "%d\n", &estrutura[i].id);
+    fscanf(arquivo, "%[^\n]\n", estrutura[i].prioridade);
+    fscanf(arquivo, "%[^\n]\n", estrutura[i].observacoes);
+
+    }
+
+}
+
+void salvarDados(int cadastros){
+
+    // Abrindo o arquivo para escrita
+    FILE *arquivo = fopen("dados.txt", "w");
+
+    if (arquivo == NULL) {
+
+        printf("Erro ao abrir o arquivo\n");
+        
+    }
+
+    // Escrevendo os arquivo da struct no arquivo
+
+        fprintf(arquivo, "%d\n", cadastros);
+
+    for(int i = 0; i < cadastros; i++){
+
+        fprintf(arquivo, "%s\n", estrutura[i].tarefa);
+        fprintf(arquivo, "%d\n", estrutura[i].id);
+        fprintf(arquivo, "%s\n", estrutura[i].prioridade);
+        fprintf(arquivo, "%s\n", estrutura[i].observacoes);
+
+    }
+
+    // Fechando o arquivo
+    fclose(arquivo);
+
+    printf("arquivo salvos no arquivo 'dados.txt'.\n");
+
+}
