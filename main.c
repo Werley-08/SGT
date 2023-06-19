@@ -7,20 +7,20 @@ int main(){
 
     int cadastros = 0;
 
-    lerDados(cadastros);
+    cadastros = lerDados(cadastros);
 
     while(1){
 
-    printf("\n\n=========================================================================================================================\n");
+    printf("\n\n+=======================================================================================================================+\n");
 
-    printf("1 - Adicionar tarefa\n");
-    printf("2 - Remover tarefa\n");
-    printf("3 - Visualizar todas as tarefas\n");
-    printf("4 - Pesquisar tarefas\n");
-    printf("5 - Atualizar dados de tarefas\n");
-    printf("6 - Encerrar Programa.\n");
+    printf("|1 - Adicionar tarefa                                                                                                   |\n");
+    printf("|2 - Remover tarefa                                                                                                     |\n");
+    printf("|3 - Visualizar todas as tarefas                                                                                        |\n");
+    printf("|4 - Pesquisar tarefas                                                                                                  |\n");
+    printf("|5 - Atualizar dados de tarefas                                                                                         |\n");
+    printf("|6 - Encerrar Programa                                                                                                  |\n");
 
-    printf("=========================================================================================================================\n");
+    printf("+=======================================================================================================================+\n");
 
     fflush(stdin);
     printf("Digite um dos comandos acima >> ");
@@ -44,6 +44,8 @@ int main(){
     // Remover
 
     case 2 :
+
+    cadastros = Remover(cadastros);
 
     break;
 

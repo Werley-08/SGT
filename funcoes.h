@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+
 #include "struct.h"
 
 void Cadastro(int cadastros){
@@ -59,7 +61,54 @@ void Cadastro(int cadastros){
 
 }
 
-// void Remover(int cadastros);
+int Remover(int cadastros){
+
+    int id = 0, verifica = 0, indice = 0;
+
+    fflush(stdin);
+    printf("\nDigite o ID da tarefa que voce deseja deletar >> ");
+    scanf("%d", &id);
+
+    for(int i = 0; i < cadastros; i++){
+
+        if(id == estrutura[i].id){ // Verifica se o ID existe, e qual o indice do vetor referênte aquele ID
+
+            verifica = 1;
+
+            indice = i;
+
+        }
+
+    }
+
+    if(verifica == 1){
+
+        for(int i = indice; i < cadastros; i++){
+                
+                strcpy(estrutura[i].tarefa, estrutura[i + 1].tarefa);
+                estrutura[i].id = estrutura[i + 1].id;
+                strcpy(estrutura[i].prioridade, estrutura[i + 1].prioridade);
+                strcpy(estrutura[i].observacoes, estrutura[i + 1].observacoes);
+
+                if(i == cadastros - 1){
+
+                    printf("\nDados Deletados com Sucesso!");
+
+                }
+
+            }
+
+            cadastros--;
+
+        }else{
+
+        printf("\nID nao encontrado!\n");
+
+    }
+
+    return cadastros;
+
+}
 
 void Visualizar(int cadastros){
 
@@ -67,15 +116,17 @@ void Visualizar(int cadastros){
 
         if(i == 0){
 
-            printf("\n       ID       ||            Tarefa            ||       Prioridade       ||                 Descricao            \n");
+            printf("\n\n+=======================================================================================================================+");
+
+            printf("\n|       ID       ||            Tarefa            ||       Prioridade       ||                 Descricao                 |\n");
 
             printf("=========================================================================================================================\n");
 
-            printf("     %d     ||          %s          ||     %s     ||               %s          \n", estrutura[i].id, estrutura[i].tarefa, estrutura[i].prioridade, estrutura[i].observacoes);
+            printf("||     %d     ||          %s          ||     %s     ||               %s          ||\n", estrutura[i].id, estrutura[i].tarefa, estrutura[i].prioridade, estrutura[i].observacoes);
 
         }else{
 
-            printf("     %d     ||          %s          ||     %s     ||               %s          \n", estrutura[i].id, estrutura[i].tarefa, estrutura[i].prioridade, estrutura[i].observacoes);
+            printf("||     %d     ||          %s          ||     %s     ||               %s          ||\n", estrutura[i].id, estrutura[i].tarefa, estrutura[i].prioridade, estrutura[i].observacoes);
 
         }
 
@@ -188,7 +239,7 @@ void Visualizar(int cadastros){
 
  // Persistência de Dados
 
- void lerDados(int cadastros){
+ int lerDados(int cadastros){
 
     // Abrindo o arquivo para leitura
     FILE *arquivo = fopen("dados.txt", "r");
@@ -204,12 +255,14 @@ void Visualizar(int cadastros){
 
     for(int i = 0; i < cadastros; i++){
 
-    fscanf(arquivo, "%[^\n]\n", estrutura[i].tarefa);
-    fscanf(arquivo, "%d\n", &estrutura[i].id);
-    fscanf(arquivo, "%[^\n]\n", estrutura[i].prioridade);
-    fscanf(arquivo, "%[^\n]\n", estrutura[i].observacoes);
+        fscanf(arquivo, "%s\n", estrutura[i].tarefa);
+        fscanf(arquivo, "%d\n", &estrutura[i].id);
+        fscanf(arquivo, "%s\n", estrutura[i].prioridade);
+        fscanf(arquivo, "%s\n", estrutura[i].observacoes);
 
     }
+
+    return cadastros;
 
 }
 
