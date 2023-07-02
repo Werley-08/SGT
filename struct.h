@@ -1,8 +1,11 @@
-struct tarefas{
+#ifndef STRUCT_H
+#define STRUCT_H
 
-    char tarefa[101];
+struct Tarefas {
+    char tarefa[100];
     int id;
-    char prioridade[101];
-    char observacoes[501];
+    char prioridade[20];
+    char observacoes[100];
+};
 
-}estrutura[20];
+#endif

@@ -1,13 +1,20 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "funcoes.h"
+#include "struct.h"
 
+// Para criar o executável gcc .\main.c .\funcoes.c -o a.exe
+// Para rodar .\a.exe
 
 int main(){
 
+    //Alocação de Memória
+    struct Tarefas *estrutura = malloc(20 * sizeof(struct Tarefas));
+
     int cadastros = 0;
 
-    cadastros = lerDados(cadastros);
+    cadastros = lerDados(cadastros, estrutura);
 
     while(1){
 
@@ -35,7 +42,7 @@ int main(){
 
     case 1 :
 
-    Cadastro(cadastros);
+    Cadastro(cadastros, estrutura);
 
     cadastros++;
 
@@ -45,7 +52,7 @@ int main(){
 
     case 2 :
 
-    cadastros = Remover(cadastros);
+    cadastros = Remover(cadastros, estrutura);
 
     break;
 
@@ -53,7 +60,7 @@ int main(){
 
     case 3 : 
 
-    Visualizar(cadastros);
+    Visualizar(cadastros, estrutura);
 
     break;
 
@@ -61,7 +68,7 @@ int main(){
 
     case 4 :
 
-    Pesquisar(cadastros);
+    Pesquisar(cadastros, estrutura);
 
     break;
 
@@ -69,7 +76,7 @@ int main(){
 
     case 5 :
 
-    Atualizar(cadastros);
+    Atualizar(cadastros, estrutura);
 
     break;
 
@@ -77,7 +84,7 @@ int main(){
 
     case 6 :
 
-        salvarDados(cadastros);
+        salvarDados(cadastros, estrutura);
 
         printf("Programa Encerrado");
 
@@ -89,7 +96,7 @@ int main(){
     
     default :
 
-        printf("Comando Invalido!\n");
+        printf("\nComando Invalido!\n");
 
         break;
     }
