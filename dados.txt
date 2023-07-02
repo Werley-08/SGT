@@ -1,12 +1,8 @@
-3
+2
 ler
 45
 alta
 sem obs
-baixar
-67
-baixa
-torrent
 comprar
 90
 media
