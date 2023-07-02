@@ -122,17 +122,17 @@ void Visualizar(int cadastros, struct Tarefas *estrutura){
 
         if(i == 0){
 
-            printf("\n\n+=======================================================================================================================+");
+            printf("\n\n+======================================================================================================================+");
 
-            printf("\n|       ID       ||            Tarefa            ||       Prioridade       ||                 Descricao                 |\n");
+            printf("\n|    ID    \t            Tarefa            \t   Prioridade   \t                   Descricao                   \t|\n");
 
-            printf("=========================================================================================================================\n");
+            printf("========================================================================================================================\n");
 
-            printf("|     %d     ||          %s          ||     %s     ||               %s          |\n", (estrutura + i)->id, (estrutura + i)->tarefa, (estrutura + i)->prioridade, (estrutura + i)->observacoes);
+            printf("    %d    \t            %s            \t       %s       \t                 %s                 \t\n", (estrutura + i)->id, (estrutura + i)->tarefa, (estrutura + i)->prioridade, (estrutura + i)->observacoes);
 
         }else{
 
-            printf("|     %d     ||          %s          ||     %s     ||               %s          |\n", (estrutura + i)->id, (estrutura + i)->tarefa, (estrutura + i)->prioridade, (estrutura + i)->observacoes);
+            printf("    %d    \t            %s            \t       %s       \t                 %s                 \t\n", (estrutura + i)->id, (estrutura + i)->tarefa, (estrutura + i)->prioridade, (estrutura + i)->observacoes);
 
         }
 
@@ -168,13 +168,13 @@ void Pesquisar(int cadastros, struct Tarefas *estrutura){
 
         printf("\nOs dados referentes a esse ID sao :  \n");
 
-        printf("\n\n+=======================================================================================================================+");
+        printf("\n\n+======================================================================================================================+");
 
-        printf("\n|       ID       ||            Tarefa            ||       Prioridade       ||                 Descricao                 |\n");
+        printf("\n|    ID    \t            Tarefa            \t   Prioridade   \t                   Descricao                   \t|\n");
 
-        printf("=========================================================================================================================\n");
+        printf("========================================================================================================================\n");
 
-        printf("|     %d     ||          %s          ||     %s     ||               %s          |\n", (estrutura + indice)->id, (estrutura + indice)->tarefa, (estrutura + indice)->prioridade, (estrutura + indice)->observacoes);
+        printf("    %d    \t            %s            \t       %s       \t                 %s                 \t\n", (estrutura + indice)->id, (estrutura + indice)->tarefa, (estrutura + indice)->prioridade, (estrutura + indice)->observacoes);
 
         }else{
 
@@ -211,13 +211,13 @@ void Atualizar(int cadastros, struct Tarefas *estrutura){
 
         printf("\nOs dados atuais sao :  \n");
 
-        printf("\n\n+=======================================================================================================================+");
+        printf("\n\n+======================================================================================================================+");
 
-        printf("\n|       ID       ||            Tarefa            ||       Prioridade       ||                 Descricao                 |\n");
+        printf("\n|    ID    \t            Tarefa            \t   Prioridade   \t                   Descricao                   \t|\n");
 
-        printf("=========================================================================================================================\n");
+        printf("========================================================================================================================\n");
 
-        printf("|     %d     ||          %s          ||     %s     ||               %s          |\n", (estrutura + indice)->id, (estrutura + indice)->tarefa, (estrutura + indice)->prioridade, (estrutura + indice)->observacoes);
+        printf("    %d    \t            %s            \t       %s       \t                 %s                 \t\n", (estrutura + indice)->id, (estrutura + indice)->tarefa, (estrutura + indice)->prioridade, (estrutura + indice)->observacoes);
 
     fflush(stdin);
     printf("\nDigite o novo valor de tarefa >> ");
