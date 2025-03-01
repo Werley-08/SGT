@@ -1,17 +1,43 @@
--- Nome: Francisco Werley da Silva
--- Matrícula: 553948
+# Sistema de Gerenciamento de Tarefas em C
 
-Eu já tinha um código de todo-list feito em C, então decidi usar o docker nela pra fazer a atividade
+Este projeto é um sistema simples de gerenciamento de tarefas desenvolvido em C, executado dentro de um container Docker. Ele permite a persistência dos dados enquanto a aplicação for encerrada corretamente.
 
-    -- Primeiro deve-se construir a imagem usando o comando:
-    -- "docker-compose build"
+## Pré-requisitos
 
-    -- Depois subir o container em segundo plano, usando o comando:
-    -- "docker-compose up -d"
-    -- Deve-se primeiro subir em segundo plano, porque a aplicação precisa de interatividade e o comando -it não é
-       reconhecido diretamente.
+- Docker
+- Docker Compose
 
-    -- Por fim, deve-se entrar no container interativamente, pelo comando:
-    -- "docker exec -it todo-list-container ./a.out"
+## Como executar
 
-    -- Para a persistência funcionar, deve-se sempre encerrar a aplicação usando o comando "6" do menu
+1. **Construir a imagem Docker:**
+   
+   ```sh
+   docker-compose build
+   ```
+
+2. **Subir o container em segundo plano:**
+   
+   ```sh
+   docker-compose up -d
+   ```
+   > É necessário iniciar em segundo plano, pois a aplicação requer interatividade e o comando `-it` não é reconhecido diretamente.
+
+3. **Acessar o container e executar a aplicação interativamente:**
+   
+   ```sh
+   docker exec -it todo-list-container ./a.out
+   ```
+
+## Persistência de Dados
+
+Para garantir a persistência dos dados, sempre finalize a aplicação utilizando a opção **"6"** no menu da aplicação.
+
+## Encerrando o Container
+
+Caso seja necessário parar o container:
+
+```sh
+docker-compose down
+```
+
+Isso removerá o container, mas os dados permanecerão se forem salvos corretamente antes da finalização da aplicação.
